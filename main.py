@@ -1,3 +1,7 @@
+from telegram.ext import *
+from telegram import *
+from Token import *
+from mongodb import *
 from imports import *  # Imports required for the bot to run
 from functions import *  # Some important functions for teh bot to function
 import time  # built in python library for logging purpose
@@ -9,19 +13,26 @@ def welcome(update: Update, context: CallbackContext):
     if update.message.chat.id in _ADMIN:  # !!! To check if the user is admin or not
         _USERS = LOGGINGCOLLECTION.find_one()['user']
         buttons = [[InlineKeyboardButton("Bot Activities", callback_data="activity")],
-                   [InlineKeyboardButton("Send Anouncements", callback_data="anounce")]]
+                   [InlineKeyboardButton("Send Anouncements", callback_data="anounce")],
+                   [InlineKeyboardButton("View Users", callback_data="v_users")]]
         context.bot.send_message(
             chat_id=update.effective_chat.id, reply_markup=InlineKeyboardMarkup(buttons), text="Welcome to ASTU Course Outline Robot\nChoose from the below choices to get started")
 
     else:
         # !!! If user is not admin
         _USERS = LOGGINGCOLLECTION.find_one()['user']
+        _USER = USERSCOLLECTION.find_one()['user']
+        query2 = {"firstName": update.message.chat.first_name,
+                 'lastName': update.message.chat.last_name, 'userName': update.message.chat.username}
         userID = str(int(list(_USERS.keys())[-1])+1)
         query = {'userID': update.message.chat.id, 'firstName': update.message.chat.first_name,
                  'lastName': update.message.chat.last_name, 'userName': update.message.chat.username, 'logtime': dateConvert(list(time.localtime()))[0], 'currentTime': dateConvert(list(time.localtime()))[1]}
+        _USER[str(update.effective_chat.id)] = query2
         _USERS[str(userID)] = query
         LOGGINGCOLLECTION.delete_one({'_id': 1})
         LOGGINGCOLLECTION.insert_one({'_id': 1, 'user': _USERS})
+        USERSCOLLECTION.delete_one({"_id": 1})
+        USERSCOLLECTION.insert_one({'_id': 1, 'user': _USER})
         buttons = [[InlineKeyboardButton("Get Started", callback_data="start")], [InlineKeyboardButton("Available Courses", callback_data="available")],
                    [InlineKeyboardButton("Search for course",
                                          callback_data="search")],
@@ -37,8 +48,6 @@ def start(update: Update, context: CallbackContext, query: CallbackQuery):
     _KEYS = list(_Courses.keys())
     for key in _KEYS:
         buttons.append([InlineKeyboardButton(key, callback_data=key)])
-    buttons.append([InlineKeyboardButton(
-        "<< Back", callback_data="back_start")])
     query.edit_message_reply_markup(reply_markup=InlineKeyboardMarkup(
         buttons))
     context.user_data["current"] = []
@@ -59,11 +68,11 @@ def semHandler(update: Update, context: CallbackContext):
         button = [[InlineKeyboardButton("More ...", callback_data="more")]]
         ind = context.user_data["index"] = 0
         context.bot.send_message(
-            chat_id=update.effective_chat.id, reply_markup=InlineKeyboardMarkup(button), text='\n'.join(_OPTION[ind]), parse_mode='MarkDown')
+            chat_id=update.effective_chat.id, reply_markup=InlineKeyboardMarkup(button), text='\n'.join(_OPTION[ind]), parse_mode='MarkdownV2')
         context.user_data["now"] = "search"
     elif text == "search":
         context.user_data["now"] = text
-        query.edit_message_text(text="Send me the any course Title")
+        context.bot.send_message(chat_id = update.effective_chat.id,text="Send me the any course Title")
     else:
         # !!! used for the back functionality to go back to the previous stage
         if text == "back":
@@ -144,30 +153,24 @@ def adminHandler(update: Update, context: CallbackContext):
         context.bot.send_message(
             chat_id=update.effective_chat.id, text="send my your anouncement")
         context.user_data["current"] = text
-
+    elif text == 'v_users':
+        pass
 
 def moreHandler(update: Update, context: CallbackContext):
     query = update.callback_query
     text = query.data
     ind = context.user_data.get("index", 0)
-    if text == 'back_c':
-        context.user_data["index"] -= 1
-        if ind >= 0:
-            button = [[InlineKeyboardButton(
-                "More ...", callback_data="more")], [InlineKeyboardButton("<< Back", callback_data="back")]]
-            query.edit_message_text(reply_markup=InlineKeyboardMarkup(
-                button), text='\n'.join(_OPTION[ind]), parse_mode="MarkDown")
-    elif text == 'more':
-        tr
+    ind+=1
+    if text == 'more':
         context.user_data["index"] += 1
         if len(_OPTION) < ind+1:
             pass
         else:
             if _OPTION[ind]:
                 button = [[InlineKeyboardButton(
-                    "More ...", callback_data="more")], [InlineKeyboardButton("<< Back", callback_data="back_c")]]
+                    "More ...", callback_data="more")]]
             query.edit_message_text(reply_markup=InlineKeyboardMarkup(
-                button), text='\n'.join(_OPTION[ind]), parse_mode="MarkDown")
+                button), text='\n'.join(_OPTION[ind]), parse_mode="MarkdownV2")
 
 
 def main():
@@ -186,7 +189,7 @@ def main():
 
 
 if __name__ == '__main__':
-    _adminstate = ['activity', 'users', 'anounce']
+    _adminstate = ['activity', 'users', 'anounce','v_users']
     _adminpattern = '('+')|('.join(_adminstate)+')'
     _ADMIN = [712156622]
     _Courses = OutlineCollection.find_one()['vals']
