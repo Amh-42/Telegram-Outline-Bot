@@ -2,7 +2,6 @@ from telegram.ext import *
 from telegram import *
 from Token import *
 from mongodb import *
-from imports import *  # Imports required for the bot to run
 from functions import *  # Some important functions for teh bot to function
 import time  # built in python library for logging purpose
 import logging
