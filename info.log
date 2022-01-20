@@ -1,0 +1,143 @@
+2022-01-20 21:53:42,268:INFO:Scheduler started
+2022-01-20 21:53:43,331:INFO:user started the bot
+2022-01-20 21:55:19,822:INFO:admin started the bot
+2022-01-20 21:55:26,085:INFO:Admin sent anouncemnt to all users
+2022-01-20 21:55:26,438:INFO:Admin sent anouncemnt to all users
+2022-01-20 21:55:56,002:ERROR:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/ext/dispatcher.py", line 555, in process_update
+    handler.handle_update(update, self, check, context)
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/ext/handler.py", line 198, in handle_update
+    return self.callback(update, context)
+  File "main.py", line 130, in messageHandler
+    _user = USERSCOLLECTION.find_one()["users"]
+KeyError: 'users'
+2022-01-20 21:56:54,134:INFO:Received signal 2 (SIGINT), stopping...
+2022-01-20 21:56:54,134:INFO:Scheduler has been shut down
+2022-01-20 21:56:54,495:WARNING:Exiting immediately!
+2022-01-20 21:56:56,426:INFO:Scheduler started
+2022-01-20 21:57:13,174:INFO:admin started the bot
+2022-01-20 21:57:15,993:INFO:Admin sent anouncemnt to all users
+2022-01-20 21:59:49,593:INFO:Received signal 2 (SIGINT), stopping...
+2022-01-20 21:59:49,593:INFO:Scheduler has been shut down
+2022-01-20 21:59:49,944:WARNING:Exiting immediately!
+2022-01-20 21:59:51,982:INFO:Scheduler started
+2022-01-20 22:00:47,465:INFO:AMH42 (user) started the bot
+2022-01-20 22:01:37,930:INFO:Anwar (user) started the bot
+2022-01-20 22:01:51,517:INFO:Anwar (admin) started the bot
+2022-01-20 22:02:14,970:INFO:Admin sent anouncemnt to all users
+2022-01-20 22:12:50,217:INFO:Бено (user) started the bot
+2022-01-20 22:14:28,910:INFO:Бено (user) started the bot
+2022-01-20 22:14:53,300:ERROR:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/ext/dispatcher.py", line 555, in process_update
+    handler.handle_update(update, self, check, context)
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/ext/handler.py", line 198, in handle_update
+    return self.callback(update, context)
+  File "main.py", line 97, in semHandler
+    sendRequest(tempD, query, text, current)
+  File "/home/csec-astu/Documents/hakathon/outline bot/Telegram-Outline-Bot/functions.py", line 12, in sendRequest
+    keys = list(tempD.keys())
+AttributeError: 'list' object has no attribute 'keys'
+2022-01-20 22:15:02,580:INFO:@dam (user) started the bot
+2022-01-20 22:15:56,033:INFO:Duresa (user) started the bot
+2022-01-20 22:16:07,681:INFO:@dam (user) started the bot
+2022-01-20 22:16:17,788:INFO:𝒂𝒃𝒅𝒖𝒍𝒍𝒂𝒉_-_عبدالله_-_αβδυλλαη (user) started the bot
+2022-01-20 22:16:26,399:ERROR:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/ext/dispatcher.py", line 555, in process_update
+    handler.handle_update(update, self, check, context)
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/ext/handler.py", line 198, in handle_update
+    return self.callback(update, context)
+  File "main.py", line 97, in semHandler
+    sendRequest(tempD, query, text, current)
+  File "/home/csec-astu/Documents/hakathon/outline bot/Telegram-Outline-Bot/functions.py", line 12, in sendRequest
+    keys = list(tempD.keys())
+AttributeError: 'list' object has no attribute 'keys'
+2022-01-20 22:16:30,280:ERROR:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/ext/dispatcher.py", line 555, in process_update
+    handler.handle_update(update, self, check, context)
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/ext/handler.py", line 198, in handle_update
+    return self.callback(update, context)
+  File "main.py", line 90, in semHandler
+    tempD = tempD[cur]
+TypeError: list indices must be integers or slices, not str
+2022-01-20 22:16:32,089:ERROR:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/ext/dispatcher.py", line 555, in process_update
+    handler.handle_update(update, self, check, context)
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/ext/handler.py", line 198, in handle_update
+    return self.callback(update, context)
+  File "main.py", line 97, in semHandler
+    sendRequest(tempD, query, text, current)
+  File "/home/csec-astu/Documents/hakathon/outline bot/Telegram-Outline-Bot/functions.py", line 12, in sendRequest
+    keys = list(tempD.keys())
+AttributeError: 'list' object has no attribute 'keys'
+2022-01-20 22:16:39,235:ERROR:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/ext/dispatcher.py", line 555, in process_update
+    handler.handle_update(update, self, check, context)
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/ext/handler.py", line 198, in handle_update
+    return self.callback(update, context)
+  File "main.py", line 97, in semHandler
+    sendRequest(tempD, query, text, current)
+  File "/home/csec-astu/Documents/hakathon/outline bot/Telegram-Outline-Bot/functions.py", line 37, in sendRequest
+    query.edit_message_reply_markup(
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/callbackquery.py", line 315, in edit_message_reply_markup
+    return self.message.edit_reply_markup(
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/message.py", line 2085, in edit_reply_markup
+    return self.bot.edit_message_reply_markup(
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/bot.py", line 130, in decorator
+    result = func(*args, **kwargs)
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/bot.py", line 2868, in edit_message_reply_markup
+    return self._message(
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/ext/extbot.py", line 199, in _message
+    result = super()._message(
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/bot.py", line 332, in _message
+    result = self._post(endpoint, data, timeout=timeout, api_kwargs=api_kwargs)
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/bot.py", line 295, in _post
+    return self.request.post(
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/utils/request.py", line 361, in post
+    result = self._request_wrapper(
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/utils/request.py", line 279, in _request_wrapper
+    raise BadRequest(message)
+telegram.error.BadRequest: Message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+2022-01-20 22:16:40,292:INFO:Duresa (user) started the bot
+2022-01-20 22:19:58,656:INFO:Anwar (admin) started the bot
+2022-01-20 22:20:15,927:INFO:Anwar (user) started the bot
+2022-01-20 22:20:23,177:ERROR:No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/ext/dispatcher.py", line 555, in process_update
+    handler.handle_update(update, self, check, context)
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/ext/handler.py", line 198, in handle_update
+    return self.callback(update, context)
+  File "main.py", line 97, in semHandler
+    sendRequest(tempD, query, text, current)
+  File "/home/csec-astu/Documents/hakathon/outline bot/Telegram-Outline-Bot/functions.py", line 37, in sendRequest
+    query.edit_message_reply_markup(
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/callbackquery.py", line 315, in edit_message_reply_markup
+    return self.message.edit_reply_markup(
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/message.py", line 2085, in edit_reply_markup
+    return self.bot.edit_message_reply_markup(
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/bot.py", line 130, in decorator
+    result = func(*args, **kwargs)
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/bot.py", line 2868, in edit_message_reply_markup
+    return self._message(
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/ext/extbot.py", line 199, in _message
+    result = super()._message(
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/bot.py", line 332, in _message
+    result = self._post(endpoint, data, timeout=timeout, api_kwargs=api_kwargs)
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/bot.py", line 295, in _post
+    return self.request.post(
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/utils/request.py", line 361, in post
+    result = self._request_wrapper(
+  File "/home/csec-astu/.local/lib/python3.8/site-packages/telegram/utils/request.py", line 279, in _request_wrapper
+    raise BadRequest(message)
+telegram.error.BadRequest: Message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+2022-01-20 22:20:38,960:INFO:Anwar (user) started the bot
+2022-01-20 22:22:02,231:INFO:Admin sent anouncemnt to all users
+2022-01-20 22:22:54,408:INFO:@dam (user) started the bot
+2022-01-20 22:23:02,917:INFO:вιηι (user) started the bot
+2022-01-20 22:23:47,295:INFO:Бено (user) started the bot
+2022-01-20 22:23:49,209:INFO:вιηι (user) started the bot

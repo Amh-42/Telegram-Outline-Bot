@@ -2,7 +2,6 @@ from telegram.ext import *
 from telegram import *
 from Token import *
 from mongodb import *
-from imports import*
 from mongodb import *
 
 _USERS = LOGGINGCOLLECTION.find_one()['user']
